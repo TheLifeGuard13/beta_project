@@ -37,3 +37,26 @@ def count_files_from_path(path: str = "None", recursive: bool = False) -> dict:
     new_dict["files"] = files_counter
     new_dict["folders"] = dirs_counter
     return new_dict
+
+
+def get_format_string(any_list: list[str]) -> list[str]:
+    """принимает на вход список строк и возвращает список строк,
+    в которых первая и последняя буквы совпадают"""
+    new_list = []
+    for string in any_list:
+        if string != "":
+            if string[0] == string[-1]:
+                new_list.append(string)
+        else:
+            new_list.append(string)
+    return new_list
+
+
+def get_nums_multiple(any_list: list[int]) -> int:
+    """принимает на вход список целых чисел и возвращает
+    максимальное произведение двух чисел из списка"""
+    if len(any_list) >= 2:
+        sorted_list = sorted([abs(item) for item in any_list])
+        return sorted_list[-1] * sorted_list[-2]
+    else:
+        return 0
