@@ -2,9 +2,10 @@ import re
 
 
 def format_payment_info(info: str) -> str:
-    """Функция принимает принимает на вход строку информацией тип карты/счета и номер карты/счета
-    и возвращает эту строку с замаскированным номером карты/счета в формате XXXX XX** **** XXXX
-    для карты и в формате **XXXX для счета."""
+    """принимает на вход строку с информацией тип и номер карты/счета
+    и возвращает эту строку с замаскированным номером карты/счета
+    в формате XXXX XX** **** XXXX для карты и
+    в формате **XXXX для счета."""
     list_of_info = info.split(' ')
     payment_number = list_of_info.pop()
     payment_type = ' '.join(list_of_info)
@@ -21,3 +22,13 @@ def format_payment_info(info: str) -> str:
         return f'{payment_type} {"**" + payment_number[16:]}'
     else:
         return "Это не номер карты/счета!"
+
+
+def get_date_from_list(string: str) -> str:
+    """принимает на вход строку, вида '2018-07-11T02:26:18.671407'
+    и возвращает строку с датой в виде '11.07.2018'"""
+    date_old_string = string.split('T')[0]
+    date = date_old_string.split('-')[2]
+    month = date_old_string.split('-')[1]
+    year = date_old_string.split('-')[0]
+    return f'{date}.{month}.{year}'
