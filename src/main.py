@@ -1,5 +1,5 @@
 from src.hw_add_tasks import get_format_string, get_nums_multiple
-from src.processing import get_formatted_list, get_formatted_list_by_date
+from src.processing import get_formatted_list, get_formatted_list_by_date, get_sorted_by_price
 from src.widget import format_payment_info, get_date_from_list
 
 input_dictionary = [
@@ -7,6 +7,14 @@ input_dictionary = [
     {"id": 939719570, "state": "EXECUTED", "date": "2018-06-30T02:08:58.425572"},
     {"id": 594226727, "state": "CANCELED", "date": "2018-09-12T21:27:25.241689"},
     {"id": 615064591, "state": "CANCELED", "date": "2018-10-14T08:21:33.419441"},
+]
+
+dict_ = [
+    {"name": "Apple", "price": 2.50, "category": "fruit", "quantity": 100},
+    {"name": "Grape", "price": 10.30, "category": "fruit", "quantity": 10},
+    {"name": "Banana", "price": 1.20, "category": "fruit", "quantity": 500},
+    {"name": "Cucumber", "price": 6.80, "category": "vegetable", "quantity": 30},
+    {"name": "Onion", "price": 0.75, "category": "vegetable", "quantity": 75},
 ]
 
 
@@ -33,3 +41,7 @@ if __name__ == "__main__":
     print(get_formatted_list(input_dictionary, "EXECUTED"))
     print(get_formatted_list_by_date(input_dictionary))
     print(get_formatted_list_by_date(input_dictionary, False))
+    # дополнительное задание №1
+    print(get_sorted_by_price(dict_, "fruit"))
+    print(get_sorted_by_price(dict_, "vegetable"))
+    print(get_sorted_by_price(dict_))
