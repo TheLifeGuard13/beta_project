@@ -1,4 +1,4 @@
-from src.hw_add_tasks import get_format_string, get_nums_multiple
+from src.hw_add_tasks import count_files_from_path, get_format_string, get_nums_multiple
 from src.processing import get_formatted_list, get_formatted_list_by_date, get_sorted_by_price
 from src.widget import format_payment_info, get_date_from_list
 
@@ -45,3 +45,9 @@ if __name__ == "__main__":
     print(get_sorted_by_price(dict_, "fruit"))
     print(get_sorted_by_price(dict_, "vegetable"))
     print(get_sorted_by_price(dict_))
+
+    # дополнительное задание №1 к ДЗ №0
+    print(count_files_from_path())
+    print(count_files_from_path(recursive=True))
+    print(count_files_from_path("/home/vlad/PycharmProjects/beta_project"))
+    print(count_files_from_path("/home/vlad/PycharmProjects/beta_project", recursive=True))
