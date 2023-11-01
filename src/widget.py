@@ -1,4 +1,4 @@
-import re
+from src.masks import format_acc_number, format_card_number
 
 
 def format_payment_info(info: str) -> str:
@@ -9,17 +9,13 @@ def format_payment_info(info: str) -> str:
     list_of_info = info.split(" ")
     payment_number = list_of_info.pop()
     payment_type = " ".join(list_of_info)
-    if payment_type == "" and len(payment_number) == 16:
-        payment_type = "AnyCard"
-    elif payment_type == "" and len(payment_number) == 20:
-        payment_type = "Счет"
+
     if payment_number.isdigit() and len(payment_number) == 16:
-        list_of_segments = re.findall(".{%s}" % 4, payment_number)
-        list_of_segments[1] = list_of_segments[1][:2] + "**"
-        list_of_segments[2] = "****"
-        return f'{payment_type} {" ".join(list_of_segments)}'
+        card_number = format_card_number(payment_number)
+        return f"{payment_type} {card_number}"
     elif payment_number.isdigit() and len(payment_number) == 20:
-        return f'{payment_type} {"**" + payment_number[16:]}'
+        acc_number = format_acc_number(payment_number)
+        return f"{payment_type} {acc_number}"
     else:
         return "Это не номер карты/счета!"
 
