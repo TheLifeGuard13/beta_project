@@ -1,5 +1,4 @@
-from src.hw_add_tasks import count_files_from_path, get_format_string, get_nums_multiple
-from src.processing import get_formatted_list, get_formatted_list_by_date, get_sorted_by_price
+from src.processing import get_formatted_list, get_formatted_list_by_date
 from src.widget import format_payment_info, get_date_from_list
 
 input_dictionary = [
@@ -8,15 +7,6 @@ input_dictionary = [
     {"id": 594226727, "state": "CANCELED", "date": "2018-09-12T21:27:25.241689"},
     {"id": 615064591, "state": "CANCELED", "date": "2018-10-14T08:21:33.419441"},
 ]
-
-dict_ = [
-    {"name": "Apple", "price": 2.50, "category": "fruit", "quantity": 100},
-    {"name": "Grape", "price": 10.30, "category": "fruit", "quantity": 10},
-    {"name": "Banana", "price": 1.20, "category": "fruit", "quantity": 500},
-    {"name": "Cucumber", "price": 6.80, "category": "vegetable", "quantity": 30},
-    {"name": "Onion", "price": 0.75, "category": "vegetable", "quantity": 75},
-]
-
 
 if __name__ == "__main__":
     # ДОМАШНЕЕ ЗАДАНИЕ №1
@@ -27,27 +17,8 @@ if __name__ == "__main__":
     print(format_payment_info("64686473678894779589"))
 
     print(get_date_from_list("2018-07-11T02:26:18.671407"))
-    # дополнительное задание №1
-    print(get_format_string(["hello", "world", "apple", "pear", "banana", "pop"]))
-    print(get_format_string(["", "madam", "racecar", "noon", "level", ""]))
-    print(get_format_string([]))
-    # дополнительное задание №2
-    print(get_nums_multiple([2, 3, 5, 7, 11]))
-    print(get_nums_multiple([-5, -7, -9, -13]))
-    print(get_nums_multiple([1, 2]))
-    print(get_nums_multiple([4]))
 
     # Задание 1. Проект (ДОМАШНЕЕ ЗАДАНИЕ №2)
     print(get_formatted_list(input_dictionary, "EXECUTED"))
     print(get_formatted_list_by_date(input_dictionary))
     print(get_formatted_list_by_date(input_dictionary, False))
-    # дополнительное задание №1
-    print(get_sorted_by_price(dict_, "fruit"))
-    print(get_sorted_by_price(dict_, "vegetable"))
-    print(get_sorted_by_price(dict_))
-
-    # дополнительное задание №1 к ДЗ №0
-    print(count_files_from_path())
-    print(count_files_from_path(recursive=True))
-    print(count_files_from_path("/home/vlad/PycharmProjects/beta_project"))
-    print(count_files_from_path("/home/vlad/PycharmProjects/beta_project", recursive=True))
