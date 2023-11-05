@@ -16,6 +16,5 @@ def test_format_payment_info(string, expected):
     assert format_payment_info(string) == expected
 
 
-@pytest.mark.parametrize("date, expected", [("2018-07-11T02:26:18.671407", "11.07.2018")])
-def test_get_date_from_list(date, expected):
-    assert get_date_from_list(date) == expected
+def test_get_date_from_list():
+    assert get_date_from_list("2018-07-11T02:26:18.671407") == "11.07.2018"
