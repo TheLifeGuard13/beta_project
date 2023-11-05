@@ -1,6 +1,6 @@
-from src.masks import format_acc_number, format_card_number
-
 import pytest
+
+from src.masks import format_acc_number, format_card_number
 
 
 @pytest.mark.parametrize(
