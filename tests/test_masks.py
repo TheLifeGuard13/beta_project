@@ -1,11 +1,26 @@
+import pytest
+
 from src.masks import format_acc_number, format_card_number
 
 
-def test_format_card_number():
-    assert format_card_number("1596837868705199") == "1596 83** **** 5199"
-    assert format_card_number("") == "Это не номер карты!"
+@pytest.mark.parametrize(
+    "string, expected",
+    [
+        ("1596837868705199", "1596 83** **** 5199"),
+        ("5999414228426353", "5999 41** **** 6353"),
+        ("134", "Это не номер карты!"),
+    ],
+)
+def test_format_card_number(string, expected):
+    assert format_card_number(string) == expected
 
 
-def test_format_acc_number():
-    assert format_acc_number("64686473678894779589") == "**9589"
-    assert format_acc_number("") == "Это не номер счета!"
+@pytest.mark.parametrize(
+    "string, expected",
+    [
+        ("64686473678894779589", "**9589"),
+        ("134", "Это не номер счета!"),
+    ],
+)
+def test_format_acc_number(string, expected):
+    assert format_acc_number(string) == expected
