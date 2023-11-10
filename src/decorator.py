@@ -11,18 +11,25 @@ def log(*, filename: str = "") -> typing.Any:
                 result = any_func(*args, **kwargs)
                 if filename == "":
                     print(f"""{datetime.datetime.now().strftime("%y-%m-%d %H:%M:%S")} {any_func.__name__} ok""")
-                    return result
+                    return f"Итого = {result}"
                 else:
                     with open(filename, "a", encoding="utf-8") as file:
                         file.write(f'{datetime.datetime.now().strftime("%y-%m-%d %H:%M:%S")} {any_func.__name__} ok\n')
-                    return result
+                    return f"Итого = {result}"
             except Exception as error:
-                print("Ошибка, см. лог файл")
-                with open(filename, "a", encoding="utf-8") as file:
-                    file.write(
-                        f'{datetime.datetime.now().strftime("%y-%m-%d %H:%M:%S")} {any_func.__name__} error: {error}. \
-                         Inputs: {args}, {kwargs}\n'
+                if filename == "":
+                    print("Ошибка, см. консоль")
+                    print(
+                        f'{datetime.datetime.now().strftime("%y-%m-%d %H:%M:%S")} {any_func.__name__} \
+error: <{error}>. Inputs: {args}, {kwargs}'
                     )
+                else:
+                    print("Ошибка, см. лог файл")
+                    with open(filename, "a", encoding="utf-8") as file:
+                        file.write(
+                            f'{datetime.datetime.now().strftime("%y-%m-%d %H:%M:%S")} {any_func.__name__} \
+                             error: <{error}>. Inputs: {args}, {kwargs}\n'
+                        )
 
         return inner
 
