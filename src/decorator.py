@@ -35,4 +35,4 @@ def my_function(x: typing.Any, y: typing.Any) -> typing.Any:
     return x + y
 
 
-print(my_function(None, None))
+print(my_function(1, 1))
