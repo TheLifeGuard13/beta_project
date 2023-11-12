@@ -7,22 +7,19 @@ def log(*, filename: str = "") -> typing.Any:
     def wrapper(any_func: typing.Callable) -> typing.Callable:
         @wraps(any_func)
         def inner(*args: typing.Any, **kwargs: typing.Any) -> typing.Any:
+            date_now = datetime.datetime.now().strftime("%y-%m-%d %H:%M:%S")
             try:
                 result = any_func(*args, **kwargs)
-                if filename == "":
-                    print(f"""{datetime.datetime.now().strftime("%y-%m-%d %H:%M:%S")} {any_func.__name__} ok""")
-                    return result
-                else:
-                    with open(filename, "a", encoding="utf-8") as file:
-                        file.write(f'{datetime.datetime.now().strftime("%y-%m-%d %H:%M:%S")} {any_func.__name__} ok\n')
-                    return result
+                log_message = f"""{date_now} {any_func.__name__} ok"""
             except Exception as error:
-                print("Ошибка, см. лог файл")
+                log_message = f"""{date_now} {any_func.__name__} error: <{error}>. Inputs: {args}, {kwargs}"""
+                result = None
+            if filename:
                 with open(filename, "a", encoding="utf-8") as file:
-                    file.write(
-                        f'{datetime.datetime.now().strftime("%y-%m-%d %H:%M:%S")} {any_func.__name__} error: {error}. \
-                         Inputs: {args}, {kwargs}\n'
-                    )
+                    file.write(log_message)
+            else:
+                print(log_message)
+            return result
 
         return inner
 
@@ -35,4 +32,4 @@ def my_function(x: typing.Any, y: typing.Any) -> typing.Any:
     return x + y
 
 
-print(my_function(1, 1))
+print(my_function("1", 1))
