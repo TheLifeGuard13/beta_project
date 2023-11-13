@@ -1,0 +1,13 @@
+23-11-10 23:28:56 my_function ok
+23-11-10 23:29:19 my_function error: can only concatenate str (not "int") to str. Inputs: ('1', 5), {}
+23-11-10 23:29:36 my_function error: can only concatenate str (not "NoneType") to str. Inputs: ('1', None), {}
+23-11-10 23:29:47 my_function error: my_function() got an unexpected keyword argument 'z'. Inputs: ('1', 2), {'z': 3}
+23-11-10 23:30:23 my_function ok
+23-11-10 23:40:03 my_function ok
+23-11-10 23:42:39 my_function ok
+23-11-10 23:44:59 my_function ok
+23-11-10 23:45:19 my_function ok
+23-11-10 23:46:41 my_function ok
+23-11-10 23:47:20 my_function error: unsupported operand type(s) for +: 'NoneType' and 'NoneType'.                          Inputs: (None, None), {}
+23-11-11 00:02:06 my_function error: unsupported operand type(s) for +: 'NoneType' and 'NoneType'.                          Inputs: (None, None), {}
+23-11-12 11:16:12 my_function error: <can only concatenate str (not "int") to str>. Inputs: ('1', 1), {}
