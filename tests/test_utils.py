@@ -1,6 +1,6 @@
 import pytest
 
-from config import DATA_PATH_TEST
+from config import DATA_PATH_TEST, DATA_PATH_TEST2
 from src.utils import check_currency, load_file, pick_one_operation
 
 
@@ -11,8 +11,8 @@ def list_operations() -> list[dict]:
 
 def test_load_file(list_operations):
     assert load_file(DATA_PATH_TEST) == list_operations
-    with pytest.raises(FileNotFoundError):
-        assert load_file("./src/test_json.json")
+    assert load_file(DATA_PATH_TEST2) == []
+    assert load_file("./src/test_json.json") == []
 
 
 def test_pick_one_operation():
