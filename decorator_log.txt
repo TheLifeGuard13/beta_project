@@ -10,4 +10,4 @@
 23-11-10 23:46:41 my_function ok
 23-11-10 23:47:20 my_function error: unsupported operand type(s) for +: 'NoneType' and 'NoneType'.                          Inputs: (None, None), {}
 23-11-11 00:02:06 my_function error: unsupported operand type(s) for +: 'NoneType' and 'NoneType'.                          Inputs: (None, None), {}
-23-11-12 11:16:12 my_function error: <can only concatenate str (not "int") to str>. Inputs: ('1', 1), {}
+23-11-12 11:16:12 my_function error: <can only concatenate str (not "int") to str>. Inputs: ('1', 1), {}23-11-14 19:46:06 my_function error: <can only concatenate str (not "int") to str>. Inputs: ('1', 1), {}23-11-14 19:47:43 my_function error: <can only concatenate str (not "int") to str>. Inputs: ('1', 1), {}23-11-14 19:47:48 my_function error: <can only concatenate str (not "int") to str>. Inputs: ('1', 1), {}23-11-14 19:47:52 my_function error: <can only concatenate str (not "int") to str>. Inputs: ('1', 1), {}23-11-14 19:48:15 my_function error: <can only concatenate str (not "int") to str>. Inputs: ('1', 1), {}23-11-14 19:48:18 my_function error: <can only concatenate str (not "int") to str>. Inputs: ('1', 1), {}

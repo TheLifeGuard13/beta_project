@@ -20,7 +20,7 @@ def test_pick_one_operation():
     test_pick_one = pick_one_operation(test_list)
     test_pick_two = pick_one_operation(test_list)
     test_pick_three = pick_one_operation(test_list)
-    assert test_pick_one != test_pick_two or test_pick_two == test_pick_three
+    assert test_pick_one != test_pick_two or test_pick_two != test_pick_three
 
 
 def test_check_currency(list_operations):
