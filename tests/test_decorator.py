@@ -10,11 +10,11 @@ from src.decorator import log
     "x, y, expected",
     [
         (1, 1, " func ok"),
-        ("1", 1, """ func error: <can only concatenate str (not "int") to str>. Inputs: ('1', 1), {}"""),
+        ("1", 1, ' func error: <can only concatenate str (not "int") to str>. Inputs: ("1", 1), {}'),
         (
             None,
             None,
-            """ func error: <unsupported operand type(s) for +: 'NoneType' and 'NoneType'>. Inputs: (None, None), {}""",
+            " func error: <unsupported operand type(s) for +: 'NoneType' and 'NoneType'>. Inputs: (None, None), {}",
         ),
     ],
 )
@@ -46,7 +46,7 @@ def test_log(x, y, expected):
         (
             None,
             None,
-            """ func error: <unsupported operand type(s) for +: 'NoneType' and 'NoneType'>. Inputs: (None, None), {}""",
+            " func error: <unsupported operand type(s) for +: 'NoneType' and 'NoneType'>. Inputs: (None, None), {}",
         ),
     ],
 )

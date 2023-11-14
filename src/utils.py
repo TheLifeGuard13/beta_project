@@ -5,8 +5,14 @@ import typing
 
 def load_file(filename: str) -> typing.Any:
     """открывает файл со списком словарей в формате json и превращает в формат питон"""
-    with open(filename, encoding="utf-8") as file:
-        return json.load(file)
+    try:
+        with open(filename, encoding="utf-8") as file:
+            file_data = json.load(file)
+    except json.JSONDecodeError:
+        file_data = []
+    except FileNotFoundError:
+        file_data = []
+    return file_data
 
 
 def pick_one_operation(operations: list[dict]) -> dict:
