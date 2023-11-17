@@ -5,7 +5,6 @@ import random
 import typing
 from pathlib import Path
 
-from config import DATA_PATH_TEST, DATA_PATH_TEST2
 
 DATA_PATH_LOG = Path(__file__).parent.parent.joinpath("data", "utils_log.txt")
 logger = logging.getLogger("__utils__")
@@ -53,14 +52,3 @@ def check_currency(operation: dict) -> float:
     else:
         logger.info("Operation not found")
         raise Exception("Транзакция не найдена")
-
-
-# print(load_file(DATA_PATH_TEST))    # [dict, dict ...]
-# print(load_file(DATA_PATH_TEST2))  # []
-# print(load_file("./src/test_json.json"))  # []
-
-# print(pick_one_operation(load_file(DATA_PATH_TEST)))  #
-
-# print(check_currency({'operationAmount': {'currency': {'code': 0}}}))  #
-# print(check_currency({'operationAmount': {'currency': {'code': 'RUB'}}}))  #
-# print(check_currency({}))  #

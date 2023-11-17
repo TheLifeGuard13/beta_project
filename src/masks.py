@@ -39,9 +39,3 @@ def format_acc_number(number: str) -> str:
     else:
         logger.info("Wrong acc number input")
         return "Это не номер счета!"
-
-
-# print(format_card_number("1234567890123456"))
-# print(format_card_number("111"))
-# print(format_acc_number("12345678901234567890"))
-# print(format_acc_number("222"))
