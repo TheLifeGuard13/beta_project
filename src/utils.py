@@ -5,7 +5,6 @@ import random
 import typing
 from pathlib import Path
 
-
 DATA_PATH_LOG = Path(__file__).parent.parent.joinpath("data", "utils_log.txt")
 logger = logging.getLogger("__utils__")
 
@@ -26,10 +25,10 @@ def load_file(filename: str) -> typing.Any:
             file_data = json.load(file)
             logger.info("JSON OK")
     except json.JSONDecodeError:
-        logger.info("JSONDecodeError")
+        logger.error("JSONDecodeError")
         file_data = []
     except FileNotFoundError:
-        logger.info("FileNotFoundError")
+        logger.error("FileNotFoundError")
         file_data = []
     return file_data
 
@@ -47,8 +46,8 @@ def check_currency(operation: dict) -> float:
             logger.info("Currency OK")
             return float(operation["operationAmount"]["amount"])
         else:
-            logger.info("Wrong currency")
+            logger.error("Wrong currency")
             raise ValueError("Транзакция выполнена не в рублях. Укажите транзакцию в рублях")
     else:
-        logger.info("Operation not found")
+        logger.error("Operation not found")
         raise Exception("Транзакция не найдена")
