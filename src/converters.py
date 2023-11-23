@@ -4,7 +4,7 @@ import typing
 import pandas as pd
 
 
-def load_csv_file(filename: str) -> pd.DataFrame:
+def load_csv_file(filename: any) -> pd.DataFrame:
     """открывает файл в формате csv и превращает в формат питон"""
     try:
         file_data = pd.read_csv(filename, delimiter=";", encoding="utf-8")
