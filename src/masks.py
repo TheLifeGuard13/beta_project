@@ -26,7 +26,7 @@ def format_card_number(number: str) -> str:
         logger.info("Card number OK")
         return " ".join(list_of_segments)
     else:
-        logger.info("Wrong card number input")
+        logger.error("Wrong card number input")
         return "Это не номер карты!"
 
 
@@ -37,5 +37,5 @@ def format_acc_number(number: str) -> str:
         logger.info("Acc number OK")
         return "**" + number[16:]
     else:
-        logger.info("Wrong acc number input")
+        logger.error("Wrong acc number input")
         return "Это не номер счета!"

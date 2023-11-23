@@ -1,16 +1,22 @@
 import pytest
+import pandas as pd
+from pathlib import Path
+
 
 from config import DATA_PATH_CSV, DATA_PATH_TEST2, DATA_PATH_TEST3, DATA_PATH_XLS
-from src.pandas_HW import load_csv_file, load_json_file, load_xlsx_file
+from src.converters import load_csv_file, load_json_file, load_xlsx_file
+
+DATA_PATH_TEST4 = Path(__file__).parent.parent.joinpath("tests", "empty_file.csv")
+DATA_PATH_TEST5 = Path(__file__).parent.parent.joinpath("tests", "file.csv")
 
 
 def test_load_csv_file():
     assert load_csv_file(DATA_PATH_CSV).shape == (1000, 9)
-    # assert load_csv_file("file.csv").shape == (3, 1)
+    assert load_csv_file(DATA_PATH_TEST5).shape == (3, 1)
     with pytest.raises(FileNotFoundError):
         assert load_csv_file("./src/test_json.json")
-    # with pytest.raises(pd.errors.EmptyDataError):
-    #     assert load_csv_file('empty_file.csv')
+    with pytest.raises(pd.errors.EmptyDataError):
+        assert load_csv_file(DATA_PATH_TEST4)
     with pytest.raises(ValueError):
         assert load_csv_file("test.txt")
 
