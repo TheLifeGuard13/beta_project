@@ -1,13 +1,14 @@
-import pytest
-import pandas as pd
 from pathlib import Path
 
+import pandas as pd
+import pytest
 
 from config import DATA_PATH_CSV, DATA_PATH_TEST2, DATA_PATH_TEST3, DATA_PATH_XLS
 from src.converters import load_csv_file, load_json_file, load_xlsx_file
 
-DATA_PATH_TEST4 = Path(__file__).parent.parent.joinpath("tests", "empty_file.csv")
-DATA_PATH_TEST5 = Path(__file__).parent.parent.joinpath("tests", "file.csv")
+DATA_PATH_TEST4 = Path(__file__).parent.parent.joinpath("tests", "tests_data", "empty_file.csv")
+DATA_PATH_TEST5 = Path(__file__).parent.parent.joinpath("tests", "tests_data", "file.csv")
+DATA_PATH_TEST6 = Path(__file__).parent.parent.joinpath("tests", "tests_data", "test.txt")
 
 
 def test_load_csv_file():
@@ -18,7 +19,7 @@ def test_load_csv_file():
     with pytest.raises(pd.errors.EmptyDataError):
         assert load_csv_file(DATA_PATH_TEST4)
     with pytest.raises(ValueError):
-        assert load_csv_file("test.txt")
+        assert load_csv_file(DATA_PATH_TEST6)
 
 
 def test_load_xlsx_file():
@@ -26,7 +27,7 @@ def test_load_xlsx_file():
     with pytest.raises(FileNotFoundError):
         assert load_xlsx_file("./src/test_json.json")
     with pytest.raises(ValueError):
-        assert load_xlsx_file("test.txt")
+        assert load_xlsx_file(DATA_PATH_TEST6)
 
 
 def test_load_json_file():

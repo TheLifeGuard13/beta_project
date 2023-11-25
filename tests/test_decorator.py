@@ -1,5 +1,6 @@
 import datetime
 import os.path
+from pathlib import Path
 
 import pytest
 
@@ -19,7 +20,7 @@ from src.decorator import log
     ],
 )
 def test_log(x, y, expected):
-    filename = "test.txt"
+    filename = Path(__file__).parent.parent.joinpath("tests", "tests_data", "test.txt")
     if os.path.exists(filename):
         os.remove(filename)
 

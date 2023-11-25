@@ -4,7 +4,7 @@ import typing
 import pandas as pd
 
 
-def load_csv_file(filename: any) -> pd.DataFrame:
+def load_csv_file(filename: typing.Any) -> pd.DataFrame:
     """открывает файл в формате csv и превращает в формат питон"""
     try:
         file_data = pd.read_csv(filename, delimiter=";", encoding="utf-8")
@@ -13,7 +13,7 @@ def load_csv_file(filename: any) -> pd.DataFrame:
     return file_data
 
 
-def load_xlsx_file(filename: str) -> pd.DataFrame:
+def load_xlsx_file(filename: typing.Any) -> pd.DataFrame:
     """открывает файл в формате xlsx и превращает в формат питон"""
     try:
         file_data = pd.read_excel(filename)
