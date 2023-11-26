@@ -87,4 +87,6 @@ def test_find_categories():
     with pytest.raises(KeyError):
         assert find_categories(wrong_operations, dict__)
     with pytest.raises(AssertionError):
+        assert find_categories(operations, {})
+    with pytest.raises(KeyError):
         assert find_categories(wrong_operations, {})

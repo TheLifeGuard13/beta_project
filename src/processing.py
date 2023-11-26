@@ -1,4 +1,8 @@
 import re
+from collections import Counter
+
+from config import DATA_PATH
+from src.converters import load_json_file
 
 
 def get_formatted_list(any_list: list[dict], status: str = "") -> list[dict]:
@@ -26,11 +30,12 @@ def find_operation_by_description(any_list: list[dict], description: str) -> lis
 
 
 def find_categories(any_list: list[dict], category: dict) -> dict:
-    """принимать список словарей с данными о банковских операциях и словарь категорий операций
+    """принимает список словарей с данными о банковских операциях и словарь категорий операций
     и возвращать словарь, в котором ключи — это названия категорий, а значения — это количество
     операций в каждой категории."""
     cat_list = [value for key, value in category.items()]
+    counted_descriptions = dict(Counter([i["description"] for i in any_list if i]))
     dict_ = {}
-    for cat in cat_list:
-        dict_[cat] = len([x for x in any_list if x if re.search(cat, x["description"], flags=re.I)])
+    for category in cat_list:
+        dict_[category] = counted_descriptions[category]
     return dict_

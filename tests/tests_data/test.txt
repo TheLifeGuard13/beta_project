@@ -1,1 +1,1 @@
-23-11-25 10:36:03 func error: <unsupported operand type(s) for +: 'NoneType' and 'NoneType'>. Inputs: (None, None), {}
+23-11-25 17:36:08 func error: <unsupported operand type(s) for +: 'NoneType' and 'NoneType'>. Inputs: (None, None), {}
