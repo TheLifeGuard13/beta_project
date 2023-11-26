@@ -1,9 +1,6 @@
 import re
 from collections import Counter
 
-from config import DATA_PATH
-from src.converters import load_json_file
-
 
 def get_formatted_list(any_list: list[dict], status: str = "") -> list[dict]:
     """выбирает из списка словарей, словари с определенным значением (задается вторым аргументом)"""
